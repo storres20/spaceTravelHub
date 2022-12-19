@@ -1,31 +1,21 @@
-
 import React from 'react';
 import './App.css';
 import {
-  Link, NavLink, Routes, Route,
+  Routes, Route,
 } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Rockets from './pages/Rockets';
+import Missions from './pages/Missions';
+import MyProfile from './pages/MyProfile';
 
 const App = () => (
   <>
-    <nav>
-      <Link className="logo" to="/"></Link>
-      <ul className="nav-links">
-        <li>
-          <NavLink className="nav-link" to="/">Rockets</NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" to="/missions">Missions</NavLink>
-        </li>
-         <li>
-          <NavLink className="nav-link" to="/profile">My Profile</NavLink>
-        </li>
-      </ul>
-    </nav>
+    <Navbar />
 
     <Routes>
       <Route path="/" element={<Rockets />} />
       <Route path="/missions" element={<Missions />} />
-      <Route path="/myProfile" element={<Profile />} />
+      <Route path="/myProfile" element={<MyProfile />} />
     </Routes>
   </>
 );
