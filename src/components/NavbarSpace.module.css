@@ -16,3 +16,8 @@
 .NavFlex > a {
   text-decoration: none;
 }
+
+.menu {
+  text-decoration: none;
+  color: black;
+}

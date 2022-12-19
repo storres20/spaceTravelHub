@@ -8,8 +8,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from './NavbarSpace.module.css';
 import planet from '../assets/planet.png';
+import '../App.css';
 
 function NavbarSpace() {
+  const activeStyle = {
+    textDecoration: 'underline',
+  };
   return (
     <Navbar expand="md">
       <Container fluid>
@@ -24,10 +28,45 @@ function NavbarSpace() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <NavLink to="/">Rockets</NavLink>
-            <NavLink to="/missions">Missions</NavLink>
+            <NavLink
+              className={styles.menu}
+              to="/"
+              style={({ isActive }) => {
+                if (isActive) {
+                  return activeStyle;
+                }
+                return undefined;
+              }}
+            >
+              Rockets
+            </NavLink>
+            <NavLink
+              className={styles.menu}
+              to="/missions"
+              style={({ isActive }) => {
+                if (isActive) {
+                  return activeStyle;
+                }
+                return undefined;
+              }}
+
+            >
+              Missions
+            </NavLink>
             <span>|</span>
-            <NavLink to="/myProfile">My Profile</NavLink>
+            <NavLink
+              className={styles.menu}
+              to="/myProfile"
+              style={({ isActive }) => {
+                if (isActive) {
+                  return activeStyle;
+                }
+                return undefined;
+              }}
+
+            >
+              My Profile
+            </NavLink>
           </Nav>
 
         </Navbar.Collapse>
