@@ -1,0 +1,18 @@
+.NavImg {
+  width: 50px;
+  height: auto;
+}
+
+.NavTitle {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.NavFlex {
+  display: flex;
+  gap: 20px;
+}
+
+.NavFlex > a {
+  text-decoration: none;
+}
