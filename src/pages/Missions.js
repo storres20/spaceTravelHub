@@ -33,12 +33,12 @@ function Missions() {
           <tr key={item.mission_id}>
             <td><b>{item.mission_name}</b></td>
             <td>{item.description}</td>
-            <td className="align-middle">
+            <td className="align-middle text-center">
               <Badge bg={item.reserved ? 'info' : 'secondary'}>
                 {item.reserved ? 'Active Member' : 'NOT A MEMBER'}
               </Badge>
             </td>
-            <td className="align-middle">
+            <td className="align-middle text-center" style={{ width: '12%' }}>
               <Button variant={item.reserved ? 'outline-danger' : 'outline-secondary'}>
                 {item.reserved ? 'Leave Mission' : 'Join Mission'}
               </Button>
