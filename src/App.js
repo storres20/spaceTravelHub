@@ -3,14 +3,14 @@ import './App.css';
 import {
   Routes, Route,
 } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import NavbarSpace from './components/NavbarSpace';
 import Rockets from './pages/Rockets';
 import Missions from './pages/Missions';
 import MyProfile from './pages/MyProfile';
 
 const App = () => (
   <>
-    <Navbar />
+    <NavbarSpace />
 
     <Routes>
       <Route path="/" element={<Rockets />} />
