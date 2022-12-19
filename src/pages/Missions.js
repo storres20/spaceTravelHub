@@ -3,25 +3,23 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table'; /* React Bootstrap */
 import Button from 'react-bootstrap/Button'; /* React Bootstrap */
+import Badge from 'react-bootstrap/Badge'; /* React Bootstrap */
 import { getMissions } from '../redux/missions/missionSlice';
 
 function Missions() {
   /* Setup Redux dispatch */
   const dispatch = useDispatch();
 
-  /* At the beginning cont => [], after dispatch cont => [{},{}...{}] */
-  const cont = useSelector((state) => state.missions);
-  console.log(cont);
+  /* At the beginning missions => [], after dispatch missions => [{},{}...{}] */
+  const missions = useSelector((state) => state.missions);
 
   /* For dispatching only once */
   useEffect(() => {
-    if (cont.length === 0) {
-      dispatch(getMissions());
-    }
-  }, [dispatch, cont]);
+    dispatch(getMissions());
+  }, [dispatch]);
 
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover className="mt-3">
       <thead>
         <tr>
           <th>Mission</th>
@@ -31,12 +29,20 @@ function Missions() {
         </tr>
       </thead>
       <tbody>
-        {cont.map((item) => (
+        {missions.map((item) => (
           <tr key={item.mission_id}>
             <td><b>{item.mission_name}</b></td>
             <td>{item.description}</td>
-            <td>{item.reserved ? 'Active Member' : 'NOT A MEMBER'}</td>
-            <td><Button variant={item.reserved ? 'outline-danger' : 'outline-secondary'}>{item.reserved ? 'Leave Mission' : 'Join Mission'}</Button></td>
+            <td className="align-middle">
+              <Badge bg={item.reserved ? 'info' : 'secondary'}>
+                {item.reserved ? 'Active Member' : 'NOT A MEMBER'}
+              </Badge>
+            </td>
+            <td className="align-middle">
+              <Button variant={item.reserved ? 'outline-danger' : 'outline-secondary'}>
+                {item.reserved ? 'Leave Mission' : 'Join Mission'}
+              </Button>
+            </td>
           </tr>
         ))}
 
