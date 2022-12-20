@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className="navbar navbar-expand-md navbar-light"
+>
+  <div
+    className="container-fluid"
+  >
+    <a
+      aria-current="page"
+      className="active"
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="planet"
+        className="NavImg"
+        src="planet.png"
+      />
+    </a>
+    <h2
+      className="NavTitle"
+    >
+      Space Traveler‘s Hub
+    </h2>
+    <button
+      aria-controls="navbarScroll"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="justify-content-end navbar-collapse collapse"
+      id="navbarScroll"
+    >
+      <div
+        className="my-2 my-lg-0 NavFlex navbar-nav navbar-nav-scroll"
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "maxHeight": "100px",
+          }
+        }
+      >
+        <a
+          aria-current="page"
+          className="menu active"
+          href="/"
+          onClick={[Function]}
+          style={
+            Object {
+              "textDecoration": "underline",
+            }
+          }
+        >
+          Rockets
+        </a>
+        <a
+          className="menu"
+          href="/missions"
+          onClick={[Function]}
+        >
+          Missions
+        </a>
+        <span>
+          |
+        </span>
+        <a
+          className="menu"
+          href="/myProfile"
+          onClick={[Function]}
+        >
+          My Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
