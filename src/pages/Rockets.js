@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
 import { reserveRocket, cancelRocket } from '../redux/rockets/rocketSlice';
 
 function Rockets() {
@@ -35,11 +36,11 @@ function Rockets() {
             <Card.Body>
               <Card.Title>{rocketName}</Card.Title>
               <Card.Text>
-              {reserved && (
-                <Badge bg="info" style={{ marginRight: '10px'}}>
+                {reserved && (
+                <Badge bg="info" style={{ marginRight: '10px' }}>
                   Reserved
                 </Badge>
-              )}
+                )}
                 {description}
               </Card.Text>
               <Button
