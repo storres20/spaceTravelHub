@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // Actions... types
 const GET_MISSIONS = 'spaceTravelHub/missions/GET_MISSIONS';
+const JOIN_MISSIONS = 'spaceTravelHub/missions/JOIN_MISSIONS';
 
 // Reducer
 export default function reducer(state = [], action) {
@@ -11,6 +12,17 @@ export default function reducer(state = [], action) {
     // GET missions from the API
     case `${GET_MISSIONS}/fulfilled`:
       return action.payload;
+    // Implement mission joining
+    case JOIN_MISSIONS: {
+      const newState = state.map((mission) => {
+        if (mission.mission_id !== action.payload) {
+          return mission;
+        } if (mission.reserved) {
+          return { ...mission, reserved: false };
+        }
+        return { ...mission, reserved: true };
+      });
+      return newState; }
     default: return state;
   }
 }
@@ -37,3 +49,7 @@ export const getMissions = createAsyncThunk(GET_MISSIONS, async () => {
 
   return redux(result);
 }); /* getMissions - createAsyncThunk - API */
+
+export function joinMissions(obj) {
+  return { type: JOIN_MISSIONS, payload: obj };
+} /* joinMissions */
