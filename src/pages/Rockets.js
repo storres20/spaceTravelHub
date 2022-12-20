@@ -11,8 +11,11 @@ function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
 
-  const handleReserve = (id) => {
-    dispatch(reserveRocket(id));
+  const handleReserve = (id, reserved) => {
+    if (reserved) {
+      return dispatch(cancelRocket(id));
+    }
+    return dispatch(reserveRocket(id));
   };
 
   return (
@@ -35,7 +38,7 @@ function Rockets() {
                 {description}
               </Card.Text>
               <Button
-              onClick={() => handleReserve(id)} 
+              onClick={() => handleReserve(id, reserved)} 
               variant={reserved? 'outline-secondary' : 'primary'}>
               { reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
               </Button>
