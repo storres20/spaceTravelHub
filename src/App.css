@@ -5,3 +5,15 @@ body {
 .active {
   text-decoration: underline;
 }
+
+.card-group {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.card {
+  flex-direction: row !important;
+  flex-wrap: wrap;
+}

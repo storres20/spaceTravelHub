@@ -5,9 +5,9 @@ export const getRockets = createAsyncThunk('rocket/getRockets', async () => fetc
   .then((data) => {
     const rockets = data.map((rocket) => ({
       id: rocket.id,
-      rocket_name: rocket.rocket_name,
+      rocketName: rocket.rocket_name,
       description: rocket.description,
-      flickr_images: rocket.flickr_images[0],
+      flickrImages: rocket.flickr_images[0],
     }));
     return rockets;
   })
