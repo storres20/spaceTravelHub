@@ -9,14 +9,14 @@ function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
 
   return (
-    <CardGroup>
+    <CardGroup className="d-grid" style={{ padding: '10px', borderStyle: 'none' }}>
       {rockets.map(({
         id,
         rocketName,
         description,
         flickrImages,
       }) => (
-        <Card key={id}>
+        <Card key={id} className="d-flex flex-sm-column flex-md-row" style={{ marginBottom: '2%' }}>
           <Col xs={12} md={3}>
             <Card.Img src={flickrImages} />
           </Col>
