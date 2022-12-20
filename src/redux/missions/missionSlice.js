@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable max-len */
 // missionSlice.js
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -40,14 +42,11 @@ export const getMissions = createAsyncThunk(GET_MISSIONS, async () => {
   const result = await response.json();
 
   /* Keep some keys from Array of Objects and remove the rest of them */
-  const keysToKeep = ['mission_id', 'mission_name', 'description'];
+  /* 'mission_id', 'mission_name', 'description'; */
 
-  const redux = (array) => array.map((o) => keysToKeep.reduce((acc, curr) => {
-    acc[curr] = o[curr];
-    return acc;
-  }, {}));
+  const redux = result.map(({ mission_id, mission_name, description }) => ({ mission_id, mission_name, description }));
 
-  return redux(result);
+  return redux;
 }); /* getMissions - createAsyncThunk - API */
 
 export function joinMissions(obj) {
