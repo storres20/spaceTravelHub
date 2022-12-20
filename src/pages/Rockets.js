@@ -35,6 +35,11 @@ function Rockets() {
             <Card.Body>
               <Card.Title>{rocketName}</Card.Title>
               <Card.Text>
+              {reserved && (
+                <Badge bg="info" style={{ marginRight: '10px'}}>
+                  Reserved
+                </Badge>
+              )}
                 {description}
               </Card.Text>
               <Button
