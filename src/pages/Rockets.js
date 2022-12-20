@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Button from 'react-bootstrap/Button';
-import { reserveRocket } from '../redux/rockets/rocketSlice';
+import { reserveRocket, cancelRocket } from '../redux/rockets/rocketSlice';
 
 function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
@@ -22,6 +22,7 @@ function Rockets() {
         rocketName,
         description,
         flickrImages,
+        reserved,
       }) => (
         <Card key={id} className="d-flex flex-sm-column flex-md-row" style={{ marginBottom: '2%', borderStyle: 'none' }}>
           <Col xs={6} md={3}>
@@ -33,7 +34,11 @@ function Rockets() {
               <Card.Text>
                 {description}
               </Card.Text>
-              <Button onClick={() => handleReserve(id)} variant="primary">Reserve Rocket</Button>
+              <Button
+              onClick={() => handleReserve(id)} 
+              variant={reserved? 'outline-secondary' : 'primary'}>
+              { reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+              </Button>
             </Card.Body>
           </Col>
         </Card>
