@@ -18,10 +18,16 @@ const MyProfile = () => {
               <Card.Title>My Rockets</Card.Title>
               <Card.Text>
                 <ul className="list-group">
-                  {rockets.map((rocket) => (
-                    <li key={rocket.id} className="list-group-item">
-                      {rocket.rocketName}
+                  {rockets.map(({
+                    id,
+                    rocketName,
+                    reserved,
+                  }) => (
+                    reserved && (
+                    <li key={id} className="list-group-item">
+                      {rocketName}
                     </li>
+                    )
                   ))}
                 </ul>
               </Card.Text>
