@@ -1,23 +1,30 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import '../App.css';
-import {
-  Col, Card, CardGroup, Button,
-} from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Button from 'react-bootstrap/Button';
+import { reserveRocket } from '../redux/rockets/rocketSlice';
 
 function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
+  const dispatch = useDispatch();
+
+  const handleReserve = (id) => {
+    dispatch(reserveRocket(id));
+  };
 
   return (
-    <CardGroup>
+    <CardGroup className="d-grid" style={{ marginTop: '2%', padding: '10px', borderStyle: 'none' }}>
       {rockets.map(({
         id,
         rocketName,
         description,
         flickrImages,
       }) => (
-        <Card key={id}>
-          <Col xs={12} md={3}>
+        <Card key={id} className="d-flex flex-sm-column flex-md-row" style={{ marginBottom: '2%', borderStyle: 'none' }}>
+          <Col xs={6} md={3}>
             <Card.Img src={flickrImages} />
           </Col>
           <Col xs={12} md={9}>
@@ -26,7 +33,7 @@ function Rockets() {
               <Card.Text>
                 {description}
               </Card.Text>
-              <Button variant="primary">Reserve Rocket</Button>
+              <Button onClick={() => handleReserve(id)} variant="primary">Reserve Rocket</Button>
             </Card.Body>
           </Col>
         </Card>
