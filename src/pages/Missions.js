@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table'; /* React Bootstrap */
 import Button from 'react-bootstrap/Button'; /* React Bootstrap */
 import Badge from 'react-bootstrap/Badge'; /* React Bootstrap */
-import { getMissions } from '../redux/missions/missionSlice';
+import { getMissions, joinMissions } from '../redux/missions/missionSlice';
 
 function Missions() {
   /* Setup Redux dispatch */
@@ -15,8 +15,16 @@ function Missions() {
 
   /* For dispatching only once */
   useEffect(() => {
-    dispatch(getMissions());
-  }, [dispatch]);
+    if (missions.length === 0) {
+      dispatch(getMissions());
+    }
+  }, [dispatch, missions]);
+
+  /* HandleButton */
+  const handleButton = (e) => {
+    const id = e.target.name;
+    dispatch(joinMissions(id)); /* Implement mission joining */
+  };
 
   return (
     <Table striped bordered hover className="mt-3">
@@ -38,8 +46,9 @@ function Missions() {
                 {item.reserved ? 'Active Member' : 'NOT A MEMBER'}
               </Badge>
             </td>
+            {/* Implement mission joining */}
             <td className="align-middle text-center" style={{ width: '12%' }}>
-              <Button variant={item.reserved ? 'outline-danger' : 'outline-secondary'}>
+              <Button name={item.mission_id} variant={item.reserved ? 'outline-danger' : 'outline-secondary'} onClick={handleButton}>
                 {item.reserved ? 'Leave Mission' : 'Join Mission'}
               </Button>
             </td>
