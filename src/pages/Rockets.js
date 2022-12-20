@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { reserveRocket, cancelRocket } from '../redux/rockets/rocketSlice';
 
-const Rockets=() => {
+const Rockets = () => {
   const { rockets } = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
 
@@ -55,6 +55,6 @@ const Rockets=() => {
       ))}
     </CardGroup>
   );
-}
+};
 
 export default Rockets;
