@@ -38,9 +38,10 @@ function Rockets() {
                 {description}
               </Card.Text>
               <Button
-              onClick={() => handleReserve(id, reserved)} 
-              variant={reserved? 'outline-secondary' : 'primary'}>
-              { reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
+                onClick={() => handleReserve(id, reserved)}
+                variant={reserved ? 'outline-secondary' : 'primary'}
+              >
+                { reserved ? 'Cancel Reservation' : 'Reserve Rocket'}
               </Button>
             </Card.Body>
           </Col>

@@ -42,7 +42,7 @@ const rocketSlice = createSlice({
         return { ...rocket, reserved: false };
       });
       return { ...state, rockets };
-    }
+    },
   },
   extraReducers: {
     [getRockets.pending]: (state) => ({ ...state, loading: true }),
