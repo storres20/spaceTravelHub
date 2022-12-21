@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Connected React-Redux Component renders correctly 1`] = `
+<div
+  className="d-grid card-group"
+  style={
+    Object {
+      "borderStyle": "none",
+      "marginTop": "2%",
+      "padding": "10px",
+    }
+  }
+/>
+`;
